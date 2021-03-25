@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
+// Valores iniciales
 const inicialTodos = [
   {
     id: 1,
@@ -18,15 +19,19 @@ const inicialTodos = [
 
 ]
 
+const localTodos = JSON.parse(localStorage.getItem('todos'));
+
 function App() {
 
-  const [todos, setTodos] = useState(inicialTodos);
+  const [todos, setTodos] = useState(localTodos || inicialTodos);
   const [todoEdit, setTodoEdit] = useState(null);
 
+  //localStorage
   useEffect(() => {
-    localStorage.setItem('todos', todos); //primer parametro nombre de la clave que queremos asignar
+    localStorage.setItem('todos', JSON.stringify(todos)); //primer parametro nombre de la clave que queremos asignar
   }, [todos]);                            //segundo parametro la variable que queremos almacenar
 
+  // T  
   const todoDelete = (todoId) => {
 
     if (todoEdit && todoId === todoEdit.id) {
@@ -85,6 +90,7 @@ function App() {
         : todo
     ))
     setTodos(changedTodos);
+    setTodoEdit(null);
   }
   return (
     <div className="container mt-4">

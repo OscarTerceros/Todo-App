@@ -4,7 +4,7 @@ import Todo from './Todo';
 const TodoList = ({ todos, todoDelete, todoToogleCompleted, setTodoEdit }) => {
   return (
     <div>
-      <h1>Lista de Tareas</h1>
+      <h2 className="text-right display-5">Lista de Tareas</h2>
 
       {
         todos.length === 0

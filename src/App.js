@@ -5,18 +5,17 @@ import TodoForm from './components/TodoForm';
 // Valores iniciales
 const inicialTodos = [
   {
-    id: 1,
-    title: 'Todo #1',
-    description: 'Desc del Todo #1',
-    completed: false
-  },
-  {
     id: 2,
     title: 'Todo #2',
     description: 'Desc del Todo #2',
     completed: true
+  },
+  {
+    id: 1,
+    title: 'Todo #1',
+    description: 'Desc del Todo #1',
+    completed: false
   }
-
 ]
 
 const localTodos = JSON.parse(localStorage.getItem('todos'));
@@ -28,8 +27,8 @@ function App() {
 
   //localStorage
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos)); //primer parametro nombre de la clave que queremos asignar
-  }, [todos]);                            //segundo parametro la variable que queremos almacenar
+    localStorage.setItem('todos', JSON.stringify(todos)); //primer parametro nombre de la clave que queremos asignar (key)
+  }, [todos]);                            //segundo parametro la variable que queremos almacenar (values)
 
   // T  
   const todoDelete = (todoId) => {
@@ -41,7 +40,7 @@ function App() {
     setTodos(changedTodos);
   }
 
-  const todoToogleCompleted = (todoId) => {
+  const todoToggleCompleted = (todoId) => {
     /* const changedTodos = todos.map(todo => {
       const todoEdit = {
         ...todo,
@@ -99,7 +98,7 @@ function App() {
           <TodoList
             todos={todos}
             todoDelete={todoDelete}
-            todoToogleCompleted={todoToogleCompleted}
+            todoToggleCompleted={todoToggleCompleted}
             setTodoEdit={setTodoEdit}
           />
         </div>

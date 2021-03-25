@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = ({ todo, todoDelete, todoToogleCompleted, setTodoEdit }) => { //en vez de llamar a props, desestructuramos llamando a todo
+const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit }) => { //en vez de llamar a props, desestructuramos llamando a todo
 
   return (
     <div className="card mt-2">
@@ -8,7 +8,7 @@ const Todo = ({ todo, todoDelete, todoToogleCompleted, setTodoEdit }) => { //en 
         <h3 className="card-title text-right">
           {todo.title}
           <button
-            onClick={() => todoToogleCompleted(todo.id)}
+            onClick={() => todoToggleCompleted(todo.id)}
             className={`btn btn-sm ${todo.completed ? 'btn-success' : 'btn-outline-success'} ml-2`}>
             {todo.completed ? 'Terminado' : 'Terminar'}
           </button>
